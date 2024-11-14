@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刷题网站</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a.link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a.link:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+
+    <div class="container">
+        <h2>收藏的网站</h2>
+        <ul id="studyLinks">
+            <li><a class="link" href="https://leetcode.com" target="_blank">LeetCode</a></li>
+            <li><a class="link" href="https://www.hackerrank.com" target="_blank">HackerRank</a></li>
+            <li><a class="link" href="https://codewars.com" target="_blank">Codewars</a></li>
+            <li><a class="link" href="https://programmercarl.com/kamacoder/" target="_blank">代码随想录</a></li>
+        </ul>
+        <h2>添加新网站</h2>
+        <form id="addLinkForm">
+            <input type="text" id="newLink" placeholder="输入网站链接" required>
+            <input type="text" id="newLinkName" placeholder="输入网站名称" required>
+            <button type="submit">添加</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wenchi357. 版权所有.</p>
+    </footer>
+
+    <script>
+        document.getElementById('addLinkForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const link = document.getElementById('newLink').value;
+            const name = document.getElementById('newLinkName').value;
+            const studyLinks = document.getElementById('studyLinks');
+
+            const newListItem = document.createElement('li');
+            const newLink = document.createElement('a');
+            newLink.href = link;
+            newLink.target = "_blank";
+            newLink.className = "link";
+            newLink.textContent = name;
+
+            newListItem.appendChild(newLink);
+            studyLinks.appendChild(newListItem);
+
+            // 清空输入框
+            document.getElementById('newLink').value = '';
+            document.getElementById('newLinkName').value = '';
+        });
+    </script>
+</body>
+</html>

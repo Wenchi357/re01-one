@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娱乐</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a.link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a.link:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+
+    <div class="container">
+        <h2>收藏的网站</h2>
+        <ul id="entertainmentLinks">
+            <li><a class="link" href="https://www.netflix.com" target="_blank">Netflix</a></li>
+            <li><a class="link" href="https://www.spotify.com" target="_blank">Spotify</a></li>
+            <li><a class="link" href="https://www.youtube.com" target="_blank">YouTube</a></li>
+        </ul>
+        <h2>添加新网站</h2>
+        <form id="addEntertainmentLinkForm">
+            <input type="text" id="newEntertainmentLink" placeholder="输入网站链接" required>
+            <input type="text" id="newEntertainmentLinkName" placeholder="输入网站名称" required>
+            <button type="submit">添加</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wenchi357. 版权所有.</p>
+    </footer>
+
+    <script>
+        document.getElementById('addEntertainmentLinkForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const link = document.getElementById('newEntertainmentLink').value;
+            const name = document.getElementById('newEntertainmentLinkName').value;
+            const entertainmentLinks = document.getElementById('entertainmentLinks');
+
+            const newListItem = document.createElement('li');
+            const newLink = document.createElement('a');
+            newLink.href = link;
+            newLink.target = "_blank";
+            newLink.className = "link";
+            newLink.textContent = name;
+
+            newListItem.appendChild(newLink);
+            entertainmentLinks.appendChild(newListItem);
+
+            // 清空输入框
+            document.getElementById('newEntertainmentLink').value = '';
+            document.getElementById('newEntertainmentLinkName').value = '';
+        });
+    </script>
+</body>
+</html>
